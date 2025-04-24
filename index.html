@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben Kimim? | Kişisel Tanıtım</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 32px;
+            height: calc(100% - 32px);
+            width: 2px;
+            background: #a777e3;
+        }
+        .logo-text {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            background: linear-gradient(90deg, #6e8efb, #a777e3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-xl">
+                    FD
+                </div>
+                <span class="logo-text text-2xl">Felis Dobra</span>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-purple-600 transition">Hakkımda</a>
+                <a href="#skills" class="text-gray-700 hover:text-purple-600 transition">Yetenekler</a>
+                <a href="#projects" class="text-gray-700 hover:text-purple-600 transition">Projeler</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 transition">İletişim</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pt-2 pb-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#about" class="text-gray-700 hover:text-purple-600 transition py-1 border-b border-gray-100">Hakkımda</a>
+                <a href="#skills" class="text-gray-700 hover:text-purple-600 transition py-1 border-b border-gray-100">Yetenekler</a>
+                <a href="#projects" class="text-gray-700 hover:text-purple-600 transition py-1 border-b border-gray-100">Projeler</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 transition py-1">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white py-20 mt-2">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center mb-6">
+                <div class="w-32 h-32 rounded-full border-4 border-white overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1744719256525-3deab6fd16ac?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Profil Fotoğrafı" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Merhaba, Ben <span class="text-yellow-300">Felis Dobra</span></h1>
+            <div class="text-2xl mb-6 typing-effect inline-block" id="typing-text"></div>
+            <div class="flex justify-center space-x-4">
+                <a href="#about" class="px-6 py-3 bg-white text-purple-600 rounded-full font-semibold hover:bg-gray-100 transition">Beni Tanıyın</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Hakkımda</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <p class="text-lg text-gray-600 mb-6">
+                        Kendimi kısaca tanıtmam gerekirse, yazılım ile ilgileniyorum ve yaklaşık birkaç yıldır bu alanda deneyim sahibiyim. Sorun çözmeyi seven, detaylara önem veren ve projelerde her zaman sürdürülebilir çözümler üretmeye odaklanan biriyim.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Uzun süredir Discord botları üzerine çalışıyorum. Önceden toplama bir altyapı üzerinden geliştirme yapıyordum ancak tüm hataları gidererek sistemi baştan sona sorunsuz hale getirdim. Geliştirdiğim projelerde discord.js, discord.py, Node.js ve zaman zaman canvas gibi kütüphaneleri aktif olarak kullandım. Kendi başıma bir altyapı oluşturup geliştirme kararı aldıktan sonra, modüler yapılar, kayıt sistemleri, yardım menüleri, stat ve guard sistemleri gibi birçok özelliği başarıyla kurdum. Siber güvenlik konularına da ilgi duyuyorum ve bu alanda bilgi sahibi olmayı önemsiyorum.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full">#Yaratıcı</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">#DetayOdaklı</span>
+                        <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full">#TakımÇalışması</span>
+                        <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full">#ProblemÇözücü</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition">
+                            <div class="text-purple-600 text-3xl mb-4">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Eğitim</h3>
+                            <p class="text-gray-600">Anadolu Lisesi</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition">
+                            <div class="text-blue-600 text-3xl mb-4">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Deneyim</h3>
+                            <p class="text-gray-600">Tübitak-Teknofest Projeleri</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition">
+                            <div class="text-green-600 text-3xl mb-4">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Yetenekler</h3>
+                            <p class="text-gray-600">Python, JavaScript, Node.js</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition">
+                            <div class="text-yellow-600 text-3xl mb-4">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Hobiler</h3>
+                            <p class="text-gray-600">Yazılım, Satranç, Kickbox</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Yeteneklerim</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition">
+                    <div class="text-purple-600 text-4xl mb-6">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">Teknik Beceriler</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                            <span>Python</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-purple-600 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                            <span>JavaScriptt</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-purple-600 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                            <span>Node.js</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-purple-600 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition">
+                    <div class="text-blue-600 text-4xl mb-6">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">Diller</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                            <span>Türkçe</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-blue-600 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                            <span>İngilizce</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-blue-600 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                            <span>Japonca</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-blue-600 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover transition">
+                    <div class="text-green-600 text-4xl mb-6">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">Yumuşak Beceriler</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                            <span>İletişim</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-green-600 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                            <span>Takım Çalışması</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-green-600 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                            <span>Problem Çözme</span>
+                            <div class="ml-auto w-24 h-2 bg-gray-200 rounded-full">
+                                <div class="h-full bg-green-600 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Projelerim</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover transition border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Proje 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Yolda Uyuma!</h3>
+                        <p class="text-gray-600 mb-4">
+                            Eski tip arabalar için tak kullan aparat, yolda uyunması halinde tiz bir sesle uyandıran sistem.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">C++</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Arduino</span>
+                        </div>
+                        <a href="#" class="text-purple-600 font-medium hover:text-purple-800 transition flex items-center">
+                            <i class="fas fa-external-link-alt mr-2"></i> Tübitak Projesi
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover transition border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Proje 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Radar</h3>
+                        <p class="text-gray-600 mb-4">
+                            Arduino Uno ve yakınlık sensörü ile basit bir radar projesi.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">C++</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Python</span>
+                        </div>
+                        <a href="#" class="text-purple-600 font-medium hover:text-purple-800 transition flex items-center">
+                            <i class="fas fa-external-link-alt mr-2"></i> Tübitak Projesi
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover transition border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Proje 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Discord Botu</h3>
+                        <p class="text-gray-600 mb-4">
+                            Modüler yapıda geliştirilmiş, çoklu sunucu destekli gelişmiş Discord botu.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Node.js</span>
+                        </div>
+                        <a href="#" class="text-purple-600 font-medium hover:text-purple-800 transition flex items-center">
+                            <i class="fas fa-external-link-alt mr-2"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">İletişim</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Benimle İletişime Geçin</h3>
+                        <p class="mb-8">
+                            Yeni projeler, iş teklifleri veya sadece merhaba demek için aşağıdaki bilgilerden bana ulaşabilirsiniz.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-xl mr-4 mt-1">
+                                    <i class="fab fa-discord"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Discord</h4>
+                                    <a href="#" class="hover:underline">felisdvbra</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-xl mr-4 mt-1">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">GitHub</h4>
+                                    <a href="#" class="hover:underline">github.com/FelisDobra</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Konum</h4>
+                                    <p>İstanbul, Türkiye</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form class="bg-white rounded-xl p-8 shadow-lg">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Mesaj Gönder</h3>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Adınız</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Adınız">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email adresiniz">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Mesajınız</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Mesajınız..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition">Gönder</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm">
+                        FD
+                    </div>
+                    <span class="logo-text text-xl">Felis Dobra</span>
+                </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>© <span id="current-year"></span> Felis Dobra. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Effect
+        const typingText = document.getElementById('typing-text');
+        const professions = ['Yazılım Geliştirici', 'Discord Bot Uzmanı', 'Siber Güvenlik Meraklısı'];
+        let i = 0;
+        let j = 0;
+        let currentProfession = '';
+        let isDeleting = false;
+        let isEnd = false;
+
+        function type() {
+            isEnd = false;
+            typingText.textContent = currentProfession.substring(0, j);
+
+            if (!isDeleting && j === currentProfession.length) {
+                isEnd = true;
+                isDeleting = true;
+                setTimeout(type, 2000);
+                return;
+            }
+
+            if (isDeleting && j === 0) {
+                currentProfession = professions[i];
+                isDeleting = false;
+                i = (i + 1) % professions.length;
+            }
+
+            j = isDeleting ? j - 1 : j + 1;
+            const speed = isDeleting ? 100 : isEnd ? 1000 : 150;
+            setTimeout(type, speed);
+        }
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            currentProfession = professions[0];
+            type();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
